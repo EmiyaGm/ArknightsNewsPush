@@ -1,0 +1,22 @@
+{
+  "name": "arknightsnewspush",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EmiyaGm/ArknightsNewsPush.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EmiyaGm/ArknightsNewsPush/issues"
+  },
+  "homepage": "https://github.com/EmiyaGm/ArknightsNewsPush#readme",
+  "dependencies": {
+    "rsshub": "^1.0.0-master.22b8489"
+  }
+}
