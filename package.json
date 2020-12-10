@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/EmiyaGm/ArknightsNewsPush#readme",
   "dependencies": {
+    "cq-websocket": "^2.1.1",
     "rsshub": "^1.0.0-master.22b8489"
   }
 }
