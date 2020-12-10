@@ -28,7 +28,7 @@ globalReg({
 
 function run() {
   setInterval(() => {
-    RSSHub.request('http://118.25.107.67:1200/bilibili/user/dynamic/161775300')
+    RSSHub.request('http://127.0.0.1:1200/bilibili/user/dynamic/161775300')
       .then((data) => {
         if (data.item && data.item.length > 0) {
           const pubDate = new Date(data.item[0].pubDate).getTime();
