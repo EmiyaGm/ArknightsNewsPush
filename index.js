@@ -6,8 +6,8 @@ RSSHub.init({
 })
 
 const bot = new CQWebSocket({
-  "host": "127.0.0.1",
-  "port": 6701,
+  "host": "127.0.0.1", // go-cqhttp 服务地址
+  "port": 6701, // go-cqhttp ws 服务端口
   "enableAPI": true,
   "enableEvent": true,
   "accessToken": "",
@@ -28,22 +28,28 @@ globalReg({
 
 function run() {
   setInterval(() => {
-    RSSHub.request('http://127.0.0.1:1200/bilibili/user/dynamic/161775300')
+    RSSHub.request('http://127.0.0.1:1200/bilibili/user/dynamic/161775300') // rss服务地址
       .then((data) => {
         if (data.item && data.item.length > 0) {
           const pubDate = new Date(data.item[0].pubDate).getTime();
-          if (new Date().getTime() > pubDate) {
+          if (new Date().getTime() < pubDate) {
+            // 向个人推送
             bot('send_private_msg', {
-              user_id: 464723943,
+              user_id: 464723943, // 此处修改为接受消息的 qq 号
               message: data.item[0].title,
             });
+            // 向群组推送
+            // bot('send_group_msg', {
+            //   group_id: 464723943, // 此处修改为接受消息的 qq 群号
+            //   message: data.item[0].title,
+            // });
           }
         }
       })
       .catch((e) => {
         console.log(e)
       })
-  }, 6000)
+  }, 60000 * 25)
 }
 
 // 连接相关监听
